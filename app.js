@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const Article = require('./models/article');
 const article = require('./models/article');
 
-mongoose.connect('mongodb://localhost:27017/retro-gaming-blog', {
+mongoose.connect('mongodb://localhost:27017/gaming-blog', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 });
