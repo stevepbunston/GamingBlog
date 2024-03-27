@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
 const Article = require('./models/article');
-const article = require('./models/article');
+//const article = require('./models/article');
 
 mongoose.connect('mongodb://localhost:27017/gaming-blog', {
     useNewUrlParser: true,
@@ -21,6 +21,8 @@ const app = express();
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
+app.use(express.urlencoded({extended: true}));
+
 //homepage
 app.get('/', (req,res) => {
     res.render('home');
@@ -32,10 +34,23 @@ app.get('/articles', async(req, res) => {
     res.render('articles/index', {articles});
 });
 
+//Has to go ahead of get by id or it weill be treated as id!!
+app.get('/articles/new', (req, res) =>{
+    res.render('articles/new');
+});
+
+app.post('/articles', async(req, res) =>{
+    const article = new Article(req.body.article);
+    await article.save();
+    res.redirect(`/articles/${article._id}`);
+});
+
+
 app.get('/articles/:id', async(req, res) => {
     const article = await Article.findById(req.params.id);
     res.render('articles/show', {article});
-})
+});
+
 
 app.listen(3000, () => {
     console.log("Listening on port 3000");

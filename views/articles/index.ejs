@@ -8,12 +8,15 @@
 <body>
     <h1>All Articles</h1>
 
+    <div>
+        <a href="/articles/new">New Article</a>
+    </div>
+
     <ul>
         <% for (let article of articles) {%> 
         <li><a href="/articles/<%=article._id%>"><%=article.title%></a></li>
 
         <%}%>
     </ul>
-
 </body>
 </html>

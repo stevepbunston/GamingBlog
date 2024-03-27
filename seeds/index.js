@@ -17,13 +17,13 @@ db.once("open", () => {
 
 const seedDB = async () => {
     await Article.deleteMany({});
-    const articleEntry = new Article({
-        title: "Marioooooooooo",
-        game: "Super Mario",
+    const entry = new Article({
+        title: "It's a me Mariooo",
+        game: "Super Mario 64",
         release: 1996,
         console: "Nintendo 64",
     });
-    await articleEntry.save();
+    await entry.save();
 }
 
 
