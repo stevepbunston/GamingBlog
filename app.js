@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
+const methodOverride = require('method-override');
 const Article = require('./models/article');
 //const article = require('./models/article');
 
@@ -22,6 +23,7 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 app.use(express.urlencoded({extended: true}));
+app.use(methodOverride('_method'));
 
 //homepage
 app.get('/', (req,res) => {
@@ -50,6 +52,17 @@ app.get('/articles/:id', async(req, res) => {
     const article = await Article.findById(req.params.id);
     res.render('articles/show', {article});
 });
+
+app.get('/articles/:id/edit', async(req, res) => {
+    const article = await Article.findById(req.params.id);
+    res.render('articles/edit', {article});
+});
+
+app.put('/articles/:id', async(req, res) => {
+    const { id } = req.params;
+    const article = await Article.findByIdAndUpdate(id,{...req.body.article})
+    res.redirect(`/articles/${article._id}`);
+})
 
 
 app.listen(3000, () => {
