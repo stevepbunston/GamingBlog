@@ -5,8 +5,10 @@ const ArticleSchema = new Schema({
   
     title: String,
     game: String,
+    image: String,
     release: Number,
     console: String,
+    blog: String
 
 });
 

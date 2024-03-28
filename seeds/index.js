@@ -20,8 +20,10 @@ const seedDB = async () => {
     const entry = new Article({
         title: "It's a me Mariooo",
         game: "Super Mario 64",
+        image: "https://source.unsplash.com/collection/483251",
         release: 1996,
         console: "Nintendo 64",
+        blog: "insert here"
     });
     await entry.save();
 }

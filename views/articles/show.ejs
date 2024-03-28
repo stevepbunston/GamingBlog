@@ -1,6 +1,8 @@
 <% layout('layouts/boilerplate') %>
 <h1><%= article.title %></h1>
 <h2><%= article.game %></h2>
+<img src="<%= article.image %>" alt="">
+<p><%= article.blog %></p>
 <p>
     <a href="/articles/<%= article._id %>/edit">Edit Article</a>
 </p>
