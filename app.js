@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
+const ejsMate = require('ejs-mate');
 const methodOverride = require('method-override');
 const Article = require('./models/article');
 //const article = require('./models/article');
@@ -18,7 +19,7 @@ db.once("open", () => {
 
 const app = express();
 
-
+app.engine('ejs', ejsMate);
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
@@ -62,6 +63,12 @@ app.put('/articles/:id', async(req, res) => {
     const { id } = req.params;
     const article = await Article.findByIdAndUpdate(id,{...req.body.article})
     res.redirect(`/articles/${article._id}`);
+});
+
+app.delete('/articles/:id', async(req, res) =>{
+    const { id } = req.params;
+    await Article.findByIdAndDelete(id);
+    res.redirect('/articles');
 })
 
 
