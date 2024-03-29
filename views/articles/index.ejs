@@ -2,7 +2,7 @@
 <h1>All Articles</h1>
 
 <div>
-    <a href="/articles/new">New Article</a>
+    <a class="btn btn-primary" href="/articles/new">New Article</a>
 </div>
 
 <% for (let article of articles) {%> 
@@ -18,7 +18,7 @@
                 <p class="card-text">
                     <small class="text-muted"><%= article.console %>, <%= article.release %></small>
                 </p>
-                <a class="btn btn-primary" href="/articles/<%= article._id %>">View <%= article.title %></a>
+                <a class="btn btn-success" href="/articles/<%= article._id %>">View <%= article.title %></a>
             </div>
         </div>
     </div>
