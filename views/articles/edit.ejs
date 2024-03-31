@@ -2,30 +2,48 @@
 <div class="row">
     <h1 class="text-center">Edit Article</h1>
     <div class="col-6 offset-3">
-        <form action="/articles/<%= article._id %>?_method=PUT" method="POST">
+        <form action="/articles/<%= article._id %>?_method=PUT" method="POST" novalidate class="validated-form">
             <div class="mb-3">
                 <label class="form-label" for="title">Title</label>
-                <input class="form-control" type="text" id="title" name="article[title]" value="<%= article.title %>">
+                <input class="form-control" type="text" id="title" name="article[title]" value="<%= article.title %>" required>
+                <div class="valid-feedback">
+                    That's Better!
+                </div>
             </div>
             <div class="mb-3">
                 <label class="form-label" for="game">Game</label>
-                <input class="form-control" type="text" id="game" name="article[game]" value="<%= article.game %>">
+                <input class="form-control" type="text" id="game" name="article[game]" value="<%= article.game %>" required>
+                <div class="valid-feedback">
+                    That's Better!
+                </div>
             </div>
             <div class="mb-3">
                 <label class="form-label" for="image">Image</label>
-                <input class="form-control" type="text" id="image" name="article[image]" value="<%= article.image %>">
+                <input class="form-control" type="text" id="image" name="article[image]" value="<%= article.image %>" required>
+                <div class="valid-feedback">
+                    That's Better!
+                </div>
             </div>
             <div class="mb-3">
                 <label class="form-label" for="release">Release</label>
-                <input class="form-control" type="text" id="release" name="article[release]" value="<%= article.release %>">
+                <input class="form-control" type="text" id="release" name="article[release]" value="<%= article.release %>" required>
+                <div class="valid-feedback">
+                    That's Better!
+                </div>
             </div>
             <div class="mb-3">
                 <label class="form-label" for="console">Console</label>
-                <input class="form-control" type="text" id="console" name="article[console]" value="<%= article.console %>">
+                <input class="form-control" type="text" id="console" name="article[console]" value="<%= article.console %>" required>
+                <div class="valid-feedback">
+                    That's Better!
+                </div>
             </div>
             <div class="mb-3">
                 <label class="form-label" for="blog">Blog</label>
-                <textarea class="form-control" type="text" id="game" name="article[blog]"><%= article.blog %></textarea>
+                <textarea class="form-control" type="text" id="game" name="article[blog]" required><%= article.blog %></textarea>
+                <div class="valid-feedback">
+                    That's Better!
+                </div>
             </div>
             <div class="mb-3">
             <button class="btn btn-info">Update</button>

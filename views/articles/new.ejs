@@ -2,30 +2,49 @@
 <div class="row">
     <h1 class="text-center">New Article</h1>
     <div class="col-6 offset-3">
-        <form action="/articles" method="POST">
+        <form action="/articles" method="POST" novalidate class="validated-form">
             <div class="mb-3">
                 <label class="form-label" for="title">Title</label>
-                <input class="form-control" type="text" id="title" name="article[title]">
+                <input class="form-control" type="text" id="title" name="article[title]" required>
+                <div class="valid-feedback">
+                    That's Better!
+                </div>
             </div>
+
             <div class="mb-3">
                 <label class="form-label" for="game">Game</label>
-                <input class="form-control" type="text" id="game" name="article[game]">
+                <input class="form-control" type="text" id="game" name="article[game]" required>
+                <div class="valid-feedback">
+                    That's Better!
+                </div>
             </div>
             <div class="mb-3">
                 <label class="form-label" for="image">Image</label>
-                <input class="form-control" type="text" id="image" name="article[image]">
+                <input class="form-control" type="text" id="image" name="article[image]"required>
+                <div class="valid-feedback">
+                    That's Better!
+                </div>
             </div>
             <div class="mb-3">
                 <label class="form-label" for="release">Release</label>
-                <input class="form-control" type="text" id="release" name="article[release]">
+                <input class="form-control" type="text" id="release" name="article[release]"required>
+                <div class="valid-feedback">
+                    That's Better!
+                </div>
             </div>
             <div class="mb-3">
                 <label class="form-label" for="console">Console</label>
-                <input class="form-control" type="text" id="console" name="article[console]">
+                <input class="form-control" type="text" id="console" name="article[console]"required>
+                <div class="valid-feedback">
+                    That's Better!
+                </div>
             </div>
             <div class="mb-3">
                 <label class="form-label" for="blog">Blog</label>
-                <textarea class="form-control" type="text" id="game" name="article[blog]"></textarea>
+                <textarea class="form-control" type="text" id="game" name="article[blog]" required></textarea>
+                <div class="valid-feedback">
+                    That's Better!
+                </div>
             </div>
             <div class="mb-3">
             <button class="btn btn-primary">Create Blog Entry</button>

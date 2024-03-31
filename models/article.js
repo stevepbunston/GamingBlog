@@ -6,7 +6,7 @@ const ArticleSchema = new Schema({
     title: String,
     game: String,
     image: String,
-    release: Number,
+    release: String,
     console: String,
     blog: String
 
